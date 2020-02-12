@@ -1,0 +1,93 @@
+Servidores Locais:
+Download do Xampp (para Windows): https://www.apachefriends.org/pt_br/download.html
+Download do Mamp (para Mac): https://www.mamp.info/en/downloads/
+Download do Lamp (para Linux): http://www.ampps.com/download
+
+cmd (ou 'Prompt')
+Gitbash: https://git-scm.com/downloads
+
+GitHub (hospedagem dos repositórios git): https://github.com/
+Perfil do Professor Victor: https://github.com/vtorres96
+Perfil do Professor Marcelo: https://github.com/marcelo-diament
+
+Tutorial para conexão entre o usuário e o dispositivo via chave SSH:
+https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
+Resumão:
+
+PARTE 1 - SETANDO A CHAVE
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+1. Gerar chave SSH via GitBash
+
+   ssh-keygen -t rsa -b 4096 -C "seu_email@exemplo.com"
+
+Depois tecle Enter para definir o local da chave
+
+
+2. Digite uma senha (não aparecerá nada na tela, é normal)
+
+
+3. Launch da chave
+
+   eval $(ssh-agent -s)
+
+
+4. Atrelando a chave SSH ao ssh-agent
+
+   ssh-add ~/.ssh/id_rsa
+
+
+PARTE 2 - ATRELANDO AO PERFIL
+https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+
+5. Copie a chave gerada (ou rode o comando clip < ~/.ssh/id_rsa.pub)
+
+
+6. Clique no seu avatar, selecione a opção Settings e então SSH e GPG Keys
+
+
+7. Clique em New SSH key ou Add SSH key
+
+
+8. Nomeie essa conexão com um nome que consiga lembrar depois qual o dispositivo que está sendo integrado
+
+
+9. Cole a chave no campo Key
+
+
+PARTE 3 - TESTANDO A CONEXÃO
+https://help.github.com/en/github/authenticating-to-github/testing-your-ssh-connection
+
+10. Rode o comando ssh -T seu_email@exemplo.com e aguarde a resposta
+
+
+Curiosidade: há outras hospedagens de git, como o BitBucket (https://bitbucket.org/)
+
+
+Agora é instalar o xampp/lamp/mamp, criar um projeto (nova pasta) dentro da pasta C://xampp/htdocs, ativar o Apache no Painel de Controle do xampp e abrir localhost/nome-da-pasta-do-projeto para ver seu projeto rodando num servidor local!
+
+
+COMANDOS BÁSICOS
+
+Do prompt:
+
+pwd (acessa o caminho que voce está)
+cd (acessar um local, por exemplo, cd documentos -> acessa a pasta documentos)
+.. (sobe de nível, por exemplo: cd ../img -> sobe uma pasta e acessa a pasta img)
+ls (lista arquivos na pasta onde estiver)
+ll (lista arquivos de forma detalhada)
+mkdir (cria uma pasta/diretório)
+Mais comandos (para Windows): https://bytescout.com/blog/windows-command-prompt-commands.html
+
+Do git:
+git init (inicializa/cria um projeto/repositório local)
+git clone (clona/copia um projeto/repositório externo)
+git add . (envia as atualizações para stage - ficam num 'limbo')
+git commit -m 'mensagem do commit' (consolida todas as atualizações num grupo único)
+git push origin master (envia o commit para o repositório externo - no caso, para a 'origem' na branch principal - master)
+git pull origin master ('puxa' o repositório atualizado - no caso, da origem, na branch principal - master)
+git checkout master (muda para a branch desejada, no caso a principal - master)
+git checkout -b nova-branch (muda para uma nova branch, no caso, chamada nova-branch)
+
+Documentação Git: https://git-scm.com/docs
